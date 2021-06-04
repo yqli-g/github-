@@ -1,0 +1,58 @@
+协同修改 数据备份 版本管理 权限控制 历史记录 分支管理
+svn 集中式 和服务器交互 单点故障
+git 分布式 本地完整版本控制 不需要联网
+              完整性保证：hash 快照指针分支
+工作区git add 暂存区git commit 本地库
+ 代码托管中心 维护远程库
+局域网gitlab
+外网github
+本地库push远程库clone（带初始化）本地库push（加入团队）远程库pull本地库
+远程库fork远程库clone本地库push远程库pull request审核merge远程库pull本地库
+git命令行操作
+ll  ls -lA带隐藏资源  ls -l|less 
+git init     .开头都是隐藏资源 .git项目子目录和隐藏文件，不要删除、胡乱修改
+设置签名  用户名、邮箱区分开发人员 不是代码托管中心登录 
+               项目级别：仅当前项目生效
+               系统级别：操作系统用户
+               都有项目级别生效
+	二者都没有不允许
+	git config user.name +...
+	user.email不带参数项目级别
+	git config --global + user.name/user.email
+	cat .git/config
+	cat ~/.gitconfig
+git status 主命令子命令 
+	no commit yet本地库
+	track交给git（暂存区）
+	vim 文件名
+	i 输入 :wq保存退出
+git add   git rm --cached (可撤销）s
+git commit      message注释 
+	:set nu    vim显示行号
+	版本号、insertion行数
+modified: ... 这时已经track了
+	git add 来update git reset HEAD 还原
+	git checkout -- ..还原历史
+	git add and/or git commit -a
+	git commit -m "..." good.txt
+git log 查看历史 commit后面是hash   （HEAD->..)指针指向当前版本 空格向下翻页，b向上翻页 1退出
+	git log --pretty=oneline（只显示HEAD后面的版本）
+	git log --oneline一行显示省略hash
+	git reflog 显示指针回到某版本需要移动的步数（显示全部的）
+
+HEAD       可以回退、前进历史记录
+	基于索引值 git reset --hard 简略索引值  选中就复制了
+	使用^ 只能后退 git reset --hard HEAD^ 后面的多少个异或就回退多少个
+	git reset --hard HEAD~3也可以  只能后退
+	tail -n 3 ... 显示最后三行
+git help
+reset        --soft 只在本地库移动指针 显得暂存区也移了，所以modify绿字
+	--mixed  在本地库移动指针 重置暂存区 显得工作区移了，所以modify红字
+	--hard 三个区都改动
+rm后再deleted，也可以git add/commit 会有个删除记录，文件还在本地库里
+	git reset --hard 回到上个版本可以还原文件
+	没提交本地库的删除git reset --hard HEAD 将工作区和暂存区搞成和本地库一样
+	恢复的前提：删前的状态提交到了本地库
+
+
+	
