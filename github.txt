@@ -53,6 +53,10 @@ rm后再deleted，也可以git add/commit 会有个删除记录，文件还在�
 	git reset --hard 回到上个版本可以还原文件
 	没提交本地库的删除git reset --hard HEAD 将工作区和暂存区搞成和本地库一样
 	恢复的前提：删前的状态提交到了本地库
+	git diff   以行为单位进行操作的，删除之前的行，添加修改后的行
+	没有加别的参数表示和暂存区比较
+	git diff HEAD[^] 和本地库当前/之前版本比较
 
+ 
 
 	
